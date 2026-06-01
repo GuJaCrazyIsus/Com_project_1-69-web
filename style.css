@@ -73,7 +73,7 @@ input[type="text"]{
 .question label{
     display: inline-flex;
     align-items: center; 
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 .question h3{
@@ -170,3 +170,9 @@ footer{
     font-size: 14px;
 }
 
+.rating{
+    display: flex; 
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
