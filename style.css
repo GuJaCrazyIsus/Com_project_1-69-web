@@ -151,3 +151,11 @@ button{width: 100%;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(74, 134, 232, 0.4);
 }
+
+footer{
+    text-align: center; 
+    margin-top: 50px; 
+    padding-top: 70px;
+    color: #888;
+    font-size: 14px;
+}
