@@ -5,7 +5,12 @@ function nextPage(pageNumber) {
             showPopup("เกิดข้อผิดพลาด", "กรุณากรอกเลขประจำตัวนักเรียน");
             return;
         }
-
+        let studentLevel = document.getElementById("studentLevel").value;
+        if(studentLevel === "") {
+            showPopup("เกิดข้อผิดพลาด", "กรุณาเลือกระดับชั้น");
+            return;
+        }
+        
         document.getElementById("page1").style.display = "none";
         document.getElementById("page2").style.display = "block";
 
@@ -169,3 +174,4 @@ function closePopup() {
 event.target.querySelector(
     'button[type="submit"]'
 ).disabled = true;
+
