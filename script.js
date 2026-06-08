@@ -165,10 +165,51 @@ function prevPage(pageNumber) {
 
 }
 
-function submitSurvey() {
-    // ดำเนินการส่งแบบฟอร์ม
-    document.getElementById("page7").style.display = "none";
-    document.getElementById("thankyouPage").style.display = "block";
+async function submitSurvey() {
+
+    const data = {
+        studentId: document.getElementById("studentId").value,
+        studentLevel: document.getElementById("studentLevel").value,
+        suggestion: document.getElementById("suggestion").value
+    };
+
+    for(let i = 1; i <= 25; i++){
+        data["q" + i] =
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            ).value;
+    }
+
+    try {
+
+        const response = await fetch(
+            SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxX041khZ-egyeeSF_PAs_Qa-If8hPJlR7yEDNOiIZdegN7Gbt7YdT9d0d645G0BgPC_g/exec",
+            {
+                method: "POST",
+                body: JSON.stringify(data)
+            }
+        );
+
+        const result = await response.json();
+
+        if(result.success){
+
+            document.getElementById("page7").style.display = "none";
+            document.getElementById("thankyouPage").style.display = "block";
+
+        }
+
+    } catch(error){
+
+        showPopup(
+            "เกิดข้อผิดพลาด",
+            "ไม่สามารถส่งข้อมูลได้"
+        );
+
+        console.error(error);
+
+    }
+
 }
 
 document.getElementById("surveyFormPage7").addEventListener("submit", function(event){
