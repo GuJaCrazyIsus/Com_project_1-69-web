@@ -182,15 +182,15 @@ async function submitSurvey() {
 
     try {
 
-        const response = await fetch(
-            SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxX041khZ-egyeeSF_PAs_Qa-If8hPJlR7yEDNOiIZdegN7Gbt7YdT9d0d645G0BgPC_g/exec",
+        await fetch(
+            "https://script.google.com/macros/s/AKfycbxX041khZ-egyeeSF_PAs_Qa-If8hPJlR7yEDNOiIZdegN7Gbt7YdT9d0d645G0BgPC_g/exec",
             {
                 method: "POST",
+                mode: "no-cors",
                 body: JSON.stringify(data)
             }
         );
 
-        const result = await response.json();
 
         if(result.success){
 
