@@ -176,3 +176,20 @@ footer{
     gap: 10px;
     flex-wrap: wrap;
 }
+
+textarea{
+    width:100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    resize: vertical;
+    font-size: 16px;
+
+}
+
+.button-group{
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 20px;
+}

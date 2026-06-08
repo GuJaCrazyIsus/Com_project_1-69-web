@@ -1,4 +1,6 @@
 function nextPage(pageNumber) {
+    console.log("nextPage ทำงาน: ", pageNumber);
+    
     if(pageNumber === 2) {
         let studentId = document.getElementById("studentId").value;
         if(studentId.trim() === "") {
@@ -107,7 +109,29 @@ function nextPage(pageNumber) {
         document.getElementById("page6").style.display = "block";
         
     }
+    
+    if(pageNumber === 7) {
+        for(let i = 1; i <= 25; i++){
 
+            let answer = document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+            if(answer == null){
+
+                showPopup(
+                    "เกิดข้อผิดพลาด",
+                    "กรุณาตอบคำถามหน้าที่ห้าให้ครบทุกข้อ"
+                );
+                
+                return;
+            }
+        }
+        
+        document.getElementById("page6").style.display = "none";
+        document.getElementById("page7").style.display = "block";
+        
+    }
 }
 
 function prevPage(pageNumber) {
@@ -134,11 +158,20 @@ function prevPage(pageNumber) {
         document.getElementById("page6").style.display = "none";
         document.getElementById("page5").style.display = "block";
     }
+    if(pageNumber === 6) {
+        document.getElementById("page7").style.display = "none";
+        document.getElementById("page6").style.display = "block";
+    }
 
 }
 
+function submitSurvey() {
+    // ดำเนินการส่งแบบฟอร์ม
+    document.getElementById("page7").style.display = "none";
+    document.getElementById("thankyouPage").style.display = "block";
+}
 
-document.getElementById("surveyFormPage6").addEventListener("submit", function(event){
+document.getElementById("surveyFormPage7").addEventListener("submit", function(event){
     console.log("submit ทำงาน");
     
     event.preventDefault();
@@ -155,7 +188,7 @@ document.getElementById("surveyFormPage6").addEventListener("submit", function(e
         }
     }
     
-    document.getElementById("page6").style.display = "none";
+    document.getElementById("page7").style.display = "none";
     document.getElementById("thankyouPage").style.display = "block";
 });
 
@@ -171,7 +204,5 @@ function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
 
-event.target.querySelector(
-    'button[type="submit"]'
-).disabled = true;
+
 
