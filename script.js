@@ -191,13 +191,9 @@ async function submitSurvey() {
             }
         );
 
-
-        if(result.success){
-
             document.getElementById("page7").style.display = "none";
             document.getElementById("thankyouPage").style.display = "block";
 
-        }
 
     } catch(error){
 
